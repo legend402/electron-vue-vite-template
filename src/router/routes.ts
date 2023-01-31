@@ -1,20 +1,19 @@
 import { type RouteRecordRaw } from 'vue-router';
 
-export const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    name: 'index',
-    component: () => import('@/pages/home/index.vue'),
-    meta: {
-      title: '首页'
+export const routes = handleRoute();
+
+function handleRoute(): RouteRecordRaw[] {
+  const result = import.meta.glob('../pages/**/*{.vue,.tsx}', { eager: true })
+  return Object.keys(result).map(item => {
+    const component = (result[item] as any).default
+    const [name, title] = component.name.split('-')
+    return {
+      path: name === 'home' ? '/' : `/${name}`,
+      name: name,
+      component,
+      meta: {
+        title,
+      },
     }
-  },
-  {
-    path: '/list',
-    name: 'list',
-    component: () => import('@/pages/list/index.vue'),
-    meta: {
-      title: '列表'
-    }
-  },
-];
+  })
+}

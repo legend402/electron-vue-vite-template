@@ -17,8 +17,13 @@
 <script setup lang="ts">
 import { routes } from '@/router/routes'
 import type { RouteRecordRaw } from 'vue-router'
+
+defineOptions({
+  name: 'LeftMenu'
+})
+
 const router = useRouter()
-let activeRoute = $ref('index')
+let activeRoute = $ref('home')
 
 const toNextPage = ({ name }: RouteRecordRaw) => {
   router.push({ name })
