@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
+import eleRenderer from 'vite-plugin-electron-renderer'
 import AutoImport from 'unplugin-auto-import/vite'
 import MacrosVue from 'unplugin-vue-macros/vite'
 import Unocss from '@unocss/vite'
@@ -36,6 +37,9 @@ export default defineConfig({
           },
         },
       },
+    }),
+    eleRenderer({
+      nodeIntegration: true
     }),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
