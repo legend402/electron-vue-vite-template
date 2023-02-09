@@ -27,30 +27,34 @@ async function createPlugins(mode: string) {
   ]
 
   if (mode !== 'web') {
-    plugins.push((await import('vite-plugin-electron')).default({
-      main: {
-        entry: 'electron/main/index.ts',
-        vite: {
-          build: {
-            outDir: 'dist/electron/main',
+    console.log((await import('vite-plugin-electron-renderer')).default);
+    
+    plugins.push(
+      ((await import('vite-plugin-electron')).default as any).default({
+        main: {
+          entry: 'electron/main/index.ts',
+          vite: {
+            build: {
+              outDir: 'dist/electron/main',
+            },
           },
         },
-      },
-      preload: {
-        input: {
-          index: join(__dirname, 'electron/preload/index.ts'),
-        },
-        vite: {
-          build: {
-            sourcemap: 'inline',
-            outDir: 'dist/electron/preload',
+        preload: {
+          input: {
+            index: join(__dirname, '../electron/preload/index.ts'),
+          },
+          vite: {
+            build: {
+              sourcemap: 'inline',
+              outDir: 'dist/electron/preload',
+            },
           },
         },
-      },
-    }),
-    (await import('vite-plugin-electron-renderer')).default({
-      nodeIntegration: true
-    }))
+      }),
+      (await import('vite-plugin-electron-renderer')).default({
+        nodeIntegration: true
+      })
+    )
   }
 
   return plugins
