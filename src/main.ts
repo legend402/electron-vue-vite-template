@@ -5,10 +5,14 @@ import 'uno.css'
 import router from './router'
 import pinia from './store'
 
-const app = createApp(App)
+(async () => {
+  const app = createApp(App)
 
-app.use(router)
+  app.use(router)
+  app.use(pinia)
 
-app.use(pinia)
-
-app.mount('#app')
+  if (import.meta.env.MODE !== 'web')
+    app.config.globalProperties.$ipcRenderer = (await import('electron')).ipcRenderer
+  
+  app.mount('#app')
+})()

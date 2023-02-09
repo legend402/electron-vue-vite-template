@@ -1,15 +1,15 @@
-import { ipcRenderer } from "electron";
-
 export const useAppEvent = () => {
-  // const ipcRenderer = AppTool.ipcRenderer
+  const ctx = getCurrentInstance()
+  const ipcRenderer = ctx?.appContext.config.globalProperties.$ipcRenderer
+  
   const windowMax = () => {
-    ipcRenderer.send('window-max');
+    ipcRenderer?.send('window-max');
   }
   const windowMin = () => {
-    ipcRenderer.send('window-min');
+    ipcRenderer?.send('window-min');
   }
   const windowClose = () => {
-    ipcRenderer.send('window-close');
+    ipcRenderer?.send('window-close');
   }
 
   return {
