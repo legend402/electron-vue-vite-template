@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("./index-64e5a6d4.js"),n=require("./_plugin-vue_export-helper-f246444f.js"),t=e.defineComponent({name:"home-首页"});function o(c,i,s,u,l,p){return e.openBlock(),e.createElementBlock("div",null,"home")}const r=n._export_sfc(t,[["render",o]]);exports.default=r;
