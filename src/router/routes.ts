@@ -1,6 +1,26 @@
 import { type RouteRecordRaw } from 'vue-router';
 
-export const routes = handleRoute()
+
+export const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@/pages/home/index.vue'),
+    meta: {
+      title: '首页',
+      icon: 'home'
+    }
+  },
+  {
+    path: '/morse',
+    name: 'morse',
+    component: () => import('@/pages/Morse/index.vue'),
+    meta: {
+      title: '摩斯密码',
+      icon: 'password'
+    }
+  },
+]
 
 function handleRoute(): RouteRecordRaw[] {
   const result = import.meta.glob('../pages/**/*{.vue,.tsx}', { eager: true })

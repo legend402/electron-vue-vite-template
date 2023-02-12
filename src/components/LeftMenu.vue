@@ -1,16 +1,21 @@
 <template>
-  <div w-37 bg-white h-full>
-    <div class="Logo" font-bold text-green text-8 text-center py-3 border="0 b-1 solid gray-50">
+  <div class="bg-main" w-60 h-full rounded-r-15>
+    <div class="Logo" font-bold text-white text-8 text-center py-3 >
       Logo
     </div>
     <div 
       v-for="item in routes" 
       :key="item.name"
-       h-10 leading-10 pl-3 cursor-pointer
+       flex items-center
+       h-10 pl-6 my-4 mx-auto
+       leading-10 text-white cursor-pointer 
        transition="3 all"
-       hover:bg-gray-100
-       :class="[{ 'bg-gray-100': activeRoute === item.name }]"
-       @click="toNextPage(item)">{{ item.meta?.title }}</div>
+       :class="[
+          { 'bg-main-active rounded-full': activeRoute === item.name },
+          'hover:bg-main-hover rounded-full',
+          'w-80%'
+        ]"
+       @click="toNextPage(item)"><div :class="['i-carbon-'+item.meta?.icon]" mr-3></div>{{ item.meta?.title }}</div>
   </div>
 </template>
 
@@ -28,6 +33,11 @@ let activeRoute = $ref('home')
 const toNextPage = ({ name }: RouteRecordRaw) => {
   router.push({ name })
   activeRoute = name as string
+}
+
+const iconMap = {
+  home: 'i-carbon-home',
+  parssword: 'i-carbon-password'
 }
 </script>
 

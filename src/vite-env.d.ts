@@ -8,7 +8,6 @@ declare module '@vue/runtime-core' {
   }
 }
 
-
 // declare const AppTool: {
 //   ipcRenderer: Electron.IpcRenderer
 // }

@@ -5,11 +5,13 @@ import LeftMenu from './components/LeftMenu.vue';
 </script>
 
 <template>
-  <div flex bg-white class="h-[100vh]">
+  <div flex bg-gray-100 class="h-[100vh]">
     <LeftMenu></LeftMenu>
     <div flex-1 flex="col">
       <AppHeader></AppHeader>
-      <router-view flex-1></router-view>
+      <div class="content-body max-h-[calc(100vh-6rem)]" flex-1 p-3 overflow-auto>
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>

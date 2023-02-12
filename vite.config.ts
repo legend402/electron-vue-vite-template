@@ -13,6 +13,9 @@ export default defineConfig(async ({ mode }) => {
           replacement: resolve(__dirname, "src"),
         },
       ]
+    },
+    server: {
+      host: true,
     }
   }
 })

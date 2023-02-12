@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'home-首页'
+  name: 'home-首页',
 })
 </script>
 
