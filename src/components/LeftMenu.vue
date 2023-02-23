@@ -1,7 +1,7 @@
 <template>
   <div class="bg-main" w-60 h-full rounded-r-15>
     <div class="Logo" font-bold text-white text-8 text-center py-3 >
-      Logo
+      蜗牛靖子
     </div>
     <div 
       v-for="item in routes" 
