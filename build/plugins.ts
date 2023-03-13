@@ -2,7 +2,7 @@ import type { PluginOption } from "vite"
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import MacrosVue from 'unplugin-vue-macros/vite'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from '@unocss/vite'
 import { join } from 'path'
 
@@ -15,7 +15,7 @@ async function createPlugins(mode: string) {
         }),
       }
     }),
-    vueJsx(),
+    VueJsx(),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
       dts: 'src/types/auto-imports.d.ts',
