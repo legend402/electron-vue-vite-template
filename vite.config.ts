@@ -14,8 +14,5 @@ export default defineConfig(async ({ mode }) => {
         },
       ]
     },
-    server: {
-      host: true,
-    }
   }
 })
