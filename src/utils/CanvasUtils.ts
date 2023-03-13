@@ -12,6 +12,7 @@ export const createCanvas = ({ width, height }: Rect) => {
   }
 }
 
-export const drawImageToCanvas = (ctx: CanvasRenderingContext2D, url: string) => {
-  ctx.drawImage(url as any, 0, 0)
+export const getUrlToCanvas = (canvas: HTMLCanvasElement, img: HTMLImageElement) => {
+  canvas.getContext('2d')!.drawImage(img, 0, 0)
+  return canvas.toDataURL()
 }

@@ -19,7 +19,8 @@ export const selectFile = async (options: SelectFileProps = {}) => {
   }
   const file: File = await fileHandler.getFile()
 
-  const currentType = file.name.split('.').at(-1)
+  const currentType = file.name.split('.').at(-1)?.toLocaleLowerCase()
+  
   if (fileType.length && !fileType.includes(currentType!))
     return Promise.reject(new Error('上传文件类型有误'))
   
@@ -36,7 +37,7 @@ export const fileToUrl = (file: File): Promise<string> => {
   })
 }
 
-export const getImageRect = (url: string): Promise<Rect> => {
+export const getImageRect = (url: string): Promise<Rect & { img: HTMLImageElement }> => {
   return new Promise(resolve => {
     const image = new Image()
     image.src = url
@@ -44,6 +45,7 @@ export const getImageRect = (url: string): Promise<Rect> => {
       resolve({
         width: image.width,
         height: image.height,
+        img: image
       })
     }
   })
