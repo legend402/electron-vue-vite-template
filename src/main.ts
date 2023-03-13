@@ -4,6 +4,7 @@ import App from './App.vue'
 import 'uno.css'
 import router from './router'
 import pinia from './store'
+import "material-design-icons-iconfont/dist/material-design-icons.min.css";
 
 (async () => {
   const app = createApp(App)

@@ -37,7 +37,8 @@ const toNextPage = ({ name }: RouteRecordRaw) => {
 
 const iconMap = {
   home: 'i-carbon-home',
-  parssword: 'i-carbon-password'
+  password: 'i-carbon-password',
+  image: 'i-carbon-cube',
 }
 </script>
 

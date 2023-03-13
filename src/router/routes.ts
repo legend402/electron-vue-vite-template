@@ -20,6 +20,15 @@ export const routes: RouteRecordRaw[] = [
       icon: 'password'
     }
   },
+  {
+    path: '/image',
+    name: 'image',
+    component: () => import('@/pages/Image/index.vue'),
+    meta: {
+      title: '图片操作',
+      icon: 'image'
+    }
+  },
 ]
 
 function handleRoute(): RouteRecordRaw[] {

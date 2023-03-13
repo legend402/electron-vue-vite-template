@@ -1,6 +1,7 @@
 import type { PluginOption } from "vite"
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import AutoComponent from 'unplugin-vue-components/vite'
 import MacrosVue from 'unplugin-vue-macros/vite'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from '@unocss/vite'
@@ -24,6 +25,16 @@ async function createPlugins(mode: string) {
         filepath: './.eslintrc-auto-import.json',
         globalsPropValue: true,
       }
+    }),
+    AutoComponent({
+      resolvers: [
+        (componentName) => {
+          if (componentName.startsWith('Va'))
+            return { name: componentName, from: 'vuestic-ui' }
+        }
+      ],
+      
+      dts: 'src/types/components.d.ts',
     }),
     Unocss({}),
   ]

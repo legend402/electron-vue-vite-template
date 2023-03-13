@@ -1,5 +1,5 @@
 <template>
-  <div>home</div>
+  <div h-full flex="~" justify-center items-center>tool bar</div>
 </template>
 
 <script setup lang="ts">
