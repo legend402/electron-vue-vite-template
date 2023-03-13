@@ -1,6 +1,6 @@
 <template>
   <div mb-3 rounded-2 bg-white p-3 flex="~ wrap" gap-4>
-    <label for="split" flex items-center flex-1>
+    <label for="split" flex="~ 1" items-center>
       分隔符：
       <input v-model="config.split" id="split" type="text" placeholder="默认为空格" />
     </label>
@@ -27,7 +27,7 @@ const { config } = useMorseInit()
 
 <style scoped>
 input {
-  @apply: border-none outline outline-[rgba(0,0,0,.1)] p-2 rounded flex-1;
+  @apply: border-none outline outline-[rgba(0, 0, 0, .1)] p-2 rounded flex-1;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, .03);
 }
 </style>

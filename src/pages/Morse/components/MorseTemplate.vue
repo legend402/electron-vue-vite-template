@@ -6,7 +6,7 @@
         {{ text }}
       </div>
       <div class="morse-template" flex="~ wrap" ml-3 gap-2>
-        <div class="morse-item w-20% lg:w-10% md:w-15% m-[-0.5px] rounded-2" v-for="code, text in classify" flex
+        <div class="morse-item w-20% lg:w-10% md:w-15% m-[-0.5px] rounded-2" v-for="code, text in classify" :key="text" flex
           bg-white leading-8 transition-all hover:scale-105>
           <div class="morse-text" px-2 h-8>{{ text }}</div>
           <div class="divider h-full w-1px ml-2"></div>
