@@ -25,7 +25,7 @@ function getConfig() {
   }
 }
 
-function useMorseComplie() {
+function useMorseCompiler() {
   const model = reactive({
     secret: '',
     explain: '',
@@ -106,6 +106,6 @@ function useMorseInit() {
 }
 
 export {
-  useMorseComplie,
+  useMorseCompiler,
   useMorseInit
 }

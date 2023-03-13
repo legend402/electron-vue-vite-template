@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core'
-import { useMorseComplie } from './useMorse';
+import { useMorseCompiler } from './useMorse';
 
 const emits = defineEmits(['init'])
 
@@ -43,7 +43,7 @@ const {
   explainToSecret, 
   model,
   reset,
-} = useMorseComplie()
+} = useMorseCompiler()
 
 onMounted(() => {
   emits('init', reset)

@@ -29,7 +29,6 @@ async function createPlugins(mode: string) {
   ]
 
   if (mode !== 'web') {
-    console.log((await import('vite-plugin-electron-renderer')).default);
     
     plugins.push(
       ((await import('vite-plugin-electron')).default as any).default({
