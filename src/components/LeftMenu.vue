@@ -4,7 +4,7 @@
       蜗牛靖子
     </div>
     <div 
-      v-for="item in routes" 
+      v-for="item in filterRoutes" 
       :key="item.name"
        flex items-center
        h-10 pl-6 my-4 mx-auto
@@ -29,6 +29,8 @@ defineOptions({
 
 const router = useRouter()
 let activeRoute = $ref('home')
+
+const filterRoutes = computed(() => routes.filter(item => !item.meta?.notInMenu))
 
 const toNextPage = ({ name }: RouteRecordRaw) => {
   router.push({ name })

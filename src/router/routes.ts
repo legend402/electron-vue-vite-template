@@ -29,6 +29,20 @@ export const routes: RouteRecordRaw[] = [
       icon: 'image'
     }
   },
+  {
+    path: '/404',
+    name: 'NotFound',
+    meta: {
+      title: 'Page not found',
+      notInMenu: true,
+    },
+    component: () => import('@/components/NotFound.vue')
+  },
+  // 所有未定义路由，全部重定向到404页
+  {
+    path: '/:pathMatch(.*)',
+    redirect: '/404'
+  },
 ]
 
 function handleRoute(): RouteRecordRaw[] {
