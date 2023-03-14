@@ -10,10 +10,10 @@ import {
 
 export default defineConfig({
   rules: [
-    ['bg-main', { 'background-color': 'rgb(112,56,240)' }],
-    ['text-main', { 'color': 'rgb(112,56,240)' }],
-    ['bg-main-active', { 'background-color': 'rgb(92,41,214)' }],
-    ['bg-main-hover', { 'background-color': 'rgba(92,41,214,.8)' }],
+    ['bg-main', { 'background-color': 'var(--theme-color)' }],
+    ['text-main', { 'color': 'var(--theme-color)' }],
+    ['bg-main-active', { 'background-color': 'rgba(255, 255, 255, 0.1)' }],
+    ['bg-main-hover', { 'background-color': 'rgba(255, 255, 255, 0.2)' }],
   ],
   presets: [
     presetUno(),
