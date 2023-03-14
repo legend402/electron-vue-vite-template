@@ -12,7 +12,7 @@ export const createCanvas = ({ width, height }: Rect) => {
   }
 }
 
-export const getUrlToCanvas = (canvas: HTMLCanvasElement, img: HTMLImageElement) => {
-  canvas.getContext('2d')!.drawImage(img, 0, 0)
+export const getUrlToCanvas = (canvas: HTMLCanvasElement, img: HTMLImageElement, { x, y, }: { x?: number, y?: number } = {}) => {
+  canvas.getContext('2d')!.drawImage(img, x || 0, y || 0)
   return canvas.toDataURL()
 }
