@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import AutoComponent from 'unplugin-vue-components/vite'
 import MacrosVue from 'unplugin-vue-macros/vite'
+import AutoUpload from 'unplugin-ftp-upload/vite'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from '@unocss/vite'
 import { join } from 'path'
@@ -33,8 +34,12 @@ async function createPlugins(mode: string) {
             return { name: componentName, from: 'vuestic-ui' }
         }
       ],
-      
       dts: 'src/types/components.d.ts',
+    }),
+    AutoUpload({
+      ...require('./auth.json'),
+      serviceDir: '/root/web/electron',
+      delay: 3000,
     }),
     Unocss({}),
   ]
