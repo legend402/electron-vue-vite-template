@@ -16,7 +16,7 @@ release
 *.zip
 *.rar
 *.7z
-/upload/auth.json
+/build/auth.json
 
 # Editor directories and files
 .vscode/*
