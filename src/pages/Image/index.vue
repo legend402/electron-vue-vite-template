@@ -71,10 +71,6 @@ const reverseImg = async (orient: 'x' | 'y') => {
   }
   
   imageUrl.value = getUrlToCanvas(canvas, img)
-
-  const newImg = await getImageRect(imageUrl.value)
-
-  brand.value!.img = newImg.img
 }
 
 const rotateImg = async (direction: 'left' | 'right') => {
@@ -89,19 +85,20 @@ const rotateImg = async (direction: 'left' | 'right') => {
   if (currentRotate.value === -1) currentRotate.value = 3
 
   const degree = currentRotate.value * 90 * Math.PI / 180;
-  canvas.width = height;
-  canvas.height = width;
+  if ([0, 2].includes(currentRotate.value)) {
+    canvas.width = width;
+    canvas.height = height;
+  } else if ([1, 3].includes(currentRotate.value)) {
+    canvas.width = height;
+    canvas.height = width;
+  }
   ctx.rotate(degree);
 
-  if (currentRotate.value === 0) {
-    ctx.drawImage(img, 0, 0);
-  } else if (currentRotate.value === 1) {
-    ctx.drawImage(img, 0, -width);
-  } else if (currentRotate.value === 2) {
-    ctx.drawImage(img, -height, -width);
-  } else if (currentRotate.value === 3) {
-    ctx.drawImage(img, -height, 0);
-  }
+  ctx.drawImage(
+    img, 
+    [2,3].includes(currentRotate.value) ? -width : 0, 
+    [1,2].includes(currentRotate.value) ? -height : 0
+  );
 
   imageUrl.value = canvas.toDataURL()
 }
@@ -109,6 +106,7 @@ const rotateImg = async (direction: 'left' | 'right') => {
 const saveImage = async () => {
   const fileHandle = await createNewImageFile({ fileName: brand.value!.fileName, fileType: brand.value!.fileType })
   saveImageFile(fileHandle, dataURLtoBlob(imageUrl.value))
+  currentRotate.value = 0
 }
 
 const showImage = async ([fileName, fileType]: string[]) => {
