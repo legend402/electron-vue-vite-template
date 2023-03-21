@@ -10,7 +10,6 @@ export const useTheme = () => {
     'rgb(249,197,21)',
   ])
   const storageColor = useStorage('main-theme', '')
-  console.log(storageColor.value);
   
   const color = useCssVar('--theme-color', document.body)
   color.value = storageColor.value || colors[0]
