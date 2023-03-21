@@ -15,5 +15,6 @@ declare module '@vue/runtime-core' {
     NotFound: typeof import('./../components/NotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    WaveSvg: typeof import('./../components/WaveSvg.vue')['default']
   }
 }

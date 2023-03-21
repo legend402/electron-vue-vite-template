@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import Button from '@/components/Button.vue'
 import { selectFile, fileToUrl, getImageRect, createNewImageFile, saveImageFile, dataURLtoBlob } from '@/utils/fileUtils'
 import { createCanvas, getUrlToCanvas } from '@/utils/CanvasUtils'
 import { useToast } from 'vuestic-ui'

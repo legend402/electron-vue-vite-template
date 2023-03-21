@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-main" w-60 h-full rounded-r-15>
+  <div class="bg-main" min-w-60 h-full rounded-r-15>
     <div class="Logo" font-bold text-white text-8 text-center py-3 >
       蜗牛靖子
     </div>
