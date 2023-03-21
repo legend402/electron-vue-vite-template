@@ -36,19 +36,14 @@ async function createPlugins(mode: string) {
       ],
       dts: 'src/types/components.d.ts',
     }),
+    AutoUpload({
+      ...require('./auth.json'),
+      serviceDir: '/root/web/electron',
+      backupPath: '/root/web/electron_backup',
+      delay: 5000,
+    }),
     Unocss({}),
   ]
-
-  if (mode === 'production') {
-    plugins.push(
-      AutoUpload({
-        ...require('./auth.json'),
-        serviceDir: '/root/web/electron',
-        backupPath: '/root/web/electron_backup',
-        delay: 5000,
-      })
-    )
-  }
 
   if (mode !== 'web') {
     
