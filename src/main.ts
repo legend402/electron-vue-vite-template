@@ -5,6 +5,7 @@ import 'uno.css'
 import router from './router'
 import pinia from './store'
 import "material-design-icons-iconfont/dist/material-design-icons.min.css";
+import './assets/font'
 
 (async () => {
   const app = createApp(App)

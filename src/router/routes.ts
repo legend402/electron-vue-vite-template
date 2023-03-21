@@ -26,7 +26,7 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/Image/index.vue'),
     meta: {
       title: '图片操作',
-      icon: 'image'
+      icon: 'aperture'
     }
   },
   {
@@ -41,7 +41,10 @@ export const routes: RouteRecordRaw[] = [
   // 所有未定义路由，全部重定向到404页
   {
     path: '/:pathMatch(.*)',
-    redirect: '/404'
+    redirect: '/404',
+    meta: {
+      notInMenu: true,
+    },
   },
 ]
 

@@ -39,7 +39,8 @@ async function createPlugins(mode: string) {
     AutoUpload({
       ...require('./auth.json'),
       serviceDir: '/root/web/electron',
-      delay: 3000,
+      backupPath: '/root/web/electron_backup',
+      delay: 5000,
     }),
     Unocss({}),
   ]

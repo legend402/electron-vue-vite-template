@@ -7,7 +7,7 @@
         :readonly="bol" @input="morseToExplain" 
         :class="[{ 
           'bg-gray-200 cursor-not-allowed focus-visible:outline-none': bol, 
-          'outline outline-[rgba(0,0,0,.1)]': !bol 
+          'outline outline-1 outline-[rgba(0,0,0,.1)]': !bol 
         }]"
         ></textarea>
       <div class="explain-text">摩斯密文</div>
@@ -23,7 +23,7 @@
         :readonly="!bol" @input="explainToSecret"  
         :class="[{ 
           'bg-gray-200 cursor-not-allowed focus-visible:outline-none': !bol, 
-          'outline outline-[rgba(0,0,0,.1)]': bol 
+          'outline outline-1  outline-[rgba(0,0,0,.1)]': bol 
         }]"></textarea>
       <div class="explain-text">摩斯明文</div>
     </div>

@@ -1,10 +1,10 @@
 <template>
   <header h-15 flex items-center justify-between px-2 :class="[{ 'flex-row-reverse': isWeb }]">
-    <div font-bold text-black flex items-center gap-10 pr-6>
+    <div font-bold text-black flex items-center gap-6 pr-3>
       <div class="var-color" flex gap-3>
         <div @click="changeStyle(item)" v-for="item in colors" :key="item" :style="{ background: item }" h-8 w-8 rounded-full cursor-pointer></div>
       </div>
-      <p text-main>my app</p>
+      <p text-main class="name">my app</p>
     </div>
     <div h-full flex-1 style="-webkit-app-region: drag"></div>
     <div flex gap-1 v-if="!isWeb">
@@ -31,5 +31,7 @@ const { colors, changeStyle } = useTheme()
 </script>
 
 <style scoped>
-
+.name {
+  font-family: MaoKenShiJinHei;
+}
 </style>

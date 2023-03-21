@@ -40,10 +40,12 @@ const toNextPage = ({ name }: RouteRecordRaw) => {
 const iconMap = {
   home: 'i-carbon-home',
   password: 'i-carbon-password',
-  image: 'i-carbon-cube',
+  image: 'i-carbon-aperture',
 }
 </script>
 
 <style scoped>
-
+.Logo {
+  font-family: MaoKenShiJinHei;
+}
 </style>
