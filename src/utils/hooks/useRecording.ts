@@ -38,11 +38,11 @@ export const useRecording = (videoRef: Ref<HTMLVideoElement | undefined>) => {
     // 记录录屏
     recorder = new MediaRecorder(media)
 
-    recorder.addEventListener('dataavailable', event => {
+    recorder.ondataavailable = event => {
       chunks.push(event.data)
-    })
+    }
 
-    recorder.addEventListener('stop', playRecording)
+    recorder.onstop = playRecording
     recorder.start()
   }
 
