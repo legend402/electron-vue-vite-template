@@ -15,7 +15,7 @@
           'hover:bg-main-hover rounded-full',
           'w-80%'
         ]"
-       @click="toNextPage(item)"><div :class="['i-carbon-'+item.meta?.icon]" mr-3></div>{{ item.meta?.title }}</div>
+       @click="toNextPage(item)"><div :class="['i-carbon-'+item.meta?.icon]" mr-3></div>{{ item.meta?.title }}{{ item.meta?.status }}</div>
   </div>
 </template>
 
