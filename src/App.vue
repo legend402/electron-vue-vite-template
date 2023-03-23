@@ -7,7 +7,7 @@
     <LeftMenu></LeftMenu>
     <div flex-1 flex="col">
       <AppHeader></AppHeader>
-      <div class="content-body max-h-[calc(100vh-6rem)]" flex-1 p-3 overflow-auto>
+      <div class="content-body" max-content-height flex-1 p-3 overflow-auto>
         <router-view></router-view>
       </div>
     </div>

@@ -1,5 +1,6 @@
 body {
   --theme-color: rgb(112,56,240);
+  --content-height: calc(100vh - 6rem);
   margin: 0;
   font-family: 'Courier New', Courier, monospace;
 }

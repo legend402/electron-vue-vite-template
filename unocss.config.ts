@@ -14,6 +14,8 @@ export default defineConfig({
     ['text-main', { 'color': 'var(--theme-color)' }],
     ['bg-main-active', { 'background-color': 'rgba(255, 255, 255, 0.1)' }],
     ['bg-main-hover', { 'background-color': 'rgba(255, 255, 255, 0.2)' }],
+    ['content-height', { 'height': 'var(--content-height)' }],
+    ['max-content-height', { 'max-height': 'var(--content-height)' }],
   ],
   presets: [
     presetUno(),
