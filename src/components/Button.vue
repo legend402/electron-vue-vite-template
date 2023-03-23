@@ -1,5 +1,5 @@
 <template>
-  <div :class="['h-button', 'text-white', 'inline', 'cursor-pointer', ...classes]" >
+  <div :class="['h-button', 'text-white', 'inline', 'cursor-pointer', ...classes]">
     <slot></slot>
   </div>
 </template>

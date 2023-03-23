@@ -27,20 +27,19 @@ export const selectFile = async (options: SelectFileProps = {}) => {
   return file
 }
 
-export async function createNewImageFile({ fileName, fileType }: { fileName: string, fileType: string }) {
+export async function createNewFile({ fileName, fileType, accept }: { fileName: string, fileType: string, accept: string}) {
   const opts = {
     types: [{
       description: fileName,
-      accept: { [`image/${fileType}`]: [`.${fileType}`] },
+      accept: { [accept]: [`.${fileType}`] },
     }],
   };
   return await (window as any).showSaveFilePicker(opts);
 }
 
-export async function saveImageFile(fileHandle: any, text: string | Blob | ArrayBuffer | DataView) {
+export async function saveFile(fileHandle: any, text: string | Blob | ArrayBuffer | DataView) {
   try {
     const fileWriter = await fileHandle.createWritable()
-    console.log(fileWriter);
     // 写入数据
     await fileWriter.write(text)
     // 关闭可写流

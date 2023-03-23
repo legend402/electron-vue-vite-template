@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { selectFile, fileToUrl, getImageRect, createNewImageFile, saveImageFile, dataURLtoBlob } from '@/utils/fileUtils'
+import { selectFile, fileToUrl, getImageRect, createNewFile, saveFile, dataURLtoBlob } from '@/utils/fileUtils'
 import { createCanvas, getUrlToCanvas } from '@/utils/CanvasUtils'
 import { useToast } from 'vuestic-ui'
 import { to } from '@/utils'
@@ -41,7 +41,7 @@ const imageUrl = ref('')
 const currentRotate = ref(0)
 
 const uploadFile = async () => {
-  const [err, file] = await to(selectFile({
+  const [file, err] = await to(selectFile({
     fileType: ['png', 'jpg', 'jpeg']
   }))
   if (err) {
@@ -103,8 +103,8 @@ const rotateImg = async (direction: 'left' | 'right') => {
 }
 
 const saveImage = async () => {
-  const fileHandle = await createNewImageFile({ fileName: brand.value!.fileName, fileType: brand.value!.fileType })
-  saveImageFile(fileHandle, dataURLtoBlob(imageUrl.value))
+  const fileHandle = await createNewFile({ fileName: brand.value!.fileName, fileType: brand.value!.fileType, accept: `image/${brand.value!.fileType}` })
+  saveFile(fileHandle, dataURLtoBlob(imageUrl.value))
   currentRotate.value = 0
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-main" min-w-60 h-full rounded-r-15>
-    <div class="Logo" font-bold text-white text-8 text-center py-3 >
+    <div class="Logo" font-bold text-white text-8 text-center py-3 pt-8>
       蜗牛靖子
     </div>
     <div 
@@ -28,7 +28,7 @@ defineOptions({
 })
 
 const router = useRouter()
-let activeRoute = $ref('home')
+let activeRoute = $ref(location.hash.slice(2) || 'home')
 
 const filterRoutes = computed(() => routes.filter(item => !item.meta?.notInMenu))
 
@@ -41,6 +41,8 @@ const iconMap = {
   home: 'i-carbon-home',
   password: 'i-carbon-password',
   image: 'i-carbon-aperture',
+  draw: 'i-carbon-draw',
+  recording: 'i-carbon-recording',
 }
 </script>
 

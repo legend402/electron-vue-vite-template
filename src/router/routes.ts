@@ -30,6 +30,24 @@ export const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/draw',
+    name: 'draw',
+    component: () => import('@/pages/draw/index.vue'),
+    meta: {
+      title: '画板(开发中)',
+      icon: 'draw'
+    }
+  },
+  {
+    path: '/recrod',
+    name: 'recrod',
+    component: () => import('@/pages/Record/index.vue'),
+    meta: {
+      title: '录屏',
+      icon: 'recording'
+    }
+  },
+  {
     path: '/404',
     name: 'NotFound',
     meta: {

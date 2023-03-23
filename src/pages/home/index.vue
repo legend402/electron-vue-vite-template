@@ -1,5 +1,5 @@
 <template>
-  <h4 flex items-center my-2 justify-center text-main text-20 gap-5 leading-10>
+  <h4 class="title" flex items-center my-2 justify-center text-main text-20 gap-5 leading-10>
     <p>工具箱</p>
     <div i-carbon-tools></div>
   </h4>
@@ -26,7 +26,7 @@ const imgs = Object.values(import.meta.glob('@/assets/img/*.png', { eager: true 
 img {
   @apply: w-full;
 }
-h3 {
+.title {
   font-family: MaoKenShiJinHei;
 }
 .wave {
