@@ -7,7 +7,6 @@
       <Button @click="rotateImg('left')" mr-3 v-if="imageUrl" :theme="true">向左旋转</Button>
       <Button @click="rotateImg('right')" mr-3 v-if="imageUrl" :theme="true">向右旋转</Button>
       <Button @click="saveImage" mr-3 v-if="imageUrl" :theme="true">保存图片</Button>
-      <Button type="primary">~~还有bug~~</Button>
     </div>
     <div class="show-place" h-100 w-full border="~ 1 #000 dashed" rounded-12 flex="~ col" justify-center items-center>
       <p text-12 text-main font-sans v-if="!imageUrl">效果展示区</p>
