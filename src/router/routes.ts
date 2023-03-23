@@ -1,5 +1,5 @@
+import { DEVElOP_STATUS } from '@/utils/enums';
 import { type RouteRecordRaw } from 'vue-router';
-
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -8,7 +8,8 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/home/index.vue'),
     meta: {
       title: '首页',
-      icon: 'home'
+      icon: 'home',
+      status: DEVElOP_STATUS.DONE,
     }
   },
   {
@@ -17,7 +18,8 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/Morse/index.vue'),
     meta: {
       title: '摩斯密码',
-      icon: 'password'
+      icon: 'password',
+      status: DEVElOP_STATUS.DONE,
     }
   },
   {
@@ -26,7 +28,8 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/Image/index.vue'),
     meta: {
       title: '图片操作',
-      icon: 'aperture'
+      icon: 'aperture',
+      status: DEVElOP_STATUS.BUG,
     }
   },
   {
@@ -34,8 +37,9 @@ export const routes: RouteRecordRaw[] = [
     name: 'draw',
     component: () => import('@/pages/draw/index.vue'),
     meta: {
-      title: '画板(开发中)',
-      icon: 'draw'
+      title: '画板',
+      icon: 'draw',
+      status: DEVElOP_STATUS.DEVELOP,
     }
   },
   {
@@ -44,7 +48,8 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/Record/index.vue'),
     meta: {
       title: '录屏',
-      icon: 'recording'
+      icon: 'recording',
+      status: DEVElOP_STATUS.DONE,
     }
   },
   {
