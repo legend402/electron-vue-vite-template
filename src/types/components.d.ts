@@ -15,6 +15,14 @@ declare module '@vue/runtime-core' {
     NotFound: typeof import('./../components/NotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VaAvatar: typeof import('vuestic-ui')['VaAvatar']
+    VaIcon: typeof import('vuestic-ui')['VaIcon']
+    VaInput: typeof import('vuestic-ui')['VaInput']
+    VaList: typeof import('vuestic-ui')['VaList']
+    VaListItem: typeof import('vuestic-ui')['VaListItem']
+    VaListItemLabel: typeof import('vuestic-ui')['VaListItemLabel']
+    VaListItemSection: typeof import('vuestic-ui')['VaListItemSection']
+    VaListLabel: typeof import('vuestic-ui')['VaListLabel']
     WaveSvg: typeof import('./../components/WaveSvg.vue')['default']
   }
 }

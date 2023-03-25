@@ -43,6 +43,16 @@ export const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/call',
+    name: 'call',
+    component: () => import('@/pages/VideoCall/index.vue'),
+    meta: {
+      title: '视频通话',
+      icon: 'phone',
+      status: DEVElOP_STATUS.DEVELOP,
+    }
+  },
+  {
     path: '/recrod',
     name: 'recrod',
     component: () => import('@/pages/Record/index.vue'),

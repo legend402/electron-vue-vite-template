@@ -16,6 +16,7 @@ import { useRecording } from '@/utils/hooks/useRecording'
 const videoRef = ref<HTMLVideoElement>()
 
 const { startRecord, stopRecord, downloadRecord } = useRecording(videoRef)
+
 </script>
 
 <style scoped></style>
