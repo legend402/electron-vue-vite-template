@@ -20,3 +20,7 @@ export function to<T, U = Error> (
       return [undefined, err]; // 执行失败，返回数组第一项为错误信息，第二项为 undefined
     });
 }
+
+export const getVueInstance = () => {
+  return getCurrentInstance()!.appContext.app.config.globalProperties
+}

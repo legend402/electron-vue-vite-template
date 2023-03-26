@@ -691,7 +691,7 @@
 
 "@types/lodash@^4.14.161":
   version "4.14.191"
-  resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.191.tgz#09511e7f7cba275acd8b419ddac8da9a6a79e2fa"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.191.tgz#09511e7f7cba275acd8b419ddac8da9a6a79e2fa"
   integrity sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==
 
 "@types/minimatch@*":
@@ -1747,7 +1747,7 @@ ci-info@^3.2.0:
 
 cleave.js@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.npmmirror.com/cleave.js/-/cleave.js-1.6.0.tgz#0e4e011943bdd70c67c9dcf4ff800ce710529171"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.6.0.tgz#0e4e011943bdd70c67c9dcf4ff800ce710529171"
   integrity sha512-ivqesy3j5hQVG3gywPfwKPbi/7ZSftY/UNp5uphnqjr25yI2CP8FS2ODQPzuLXXnNLi29e2+PgPkkiKUXLs/Nw==
 
 cli-boxes@^2.2.1:
@@ -1815,7 +1815,7 @@ colors@1.0.3:
 
 colortranslator@^1.9.2:
   version "1.10.2"
-  resolved "https://registry.npmmirror.com/colortranslator/-/colortranslator-1.10.2.tgz#0a02b75f8c6cf50b50feb119ddccfbce1111f7f7"
+  resolved "https://registry.yarnpkg.com/colortranslator/-/colortranslator-1.10.2.tgz#0a02b75f8c6cf50b50feb119ddccfbce1111f7f7"
   integrity sha512-+vAnjWTdI0Vh6fT3I+dA6DAtnLfo91TzYKjewYeZ2dHdhF8Yo5OMo47inNJdJOXwjJ9lPD0LkNeQOLU/8yyfZA==
 
 combined-stream@^1.0.8:
@@ -4548,10 +4548,10 @@ vue@^3.2.45:
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
 
-vuestic-ui@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.npmmirror.com/vuestic-ui/-/vuestic-ui-1.6.2.tgz#0f29cf645167bd4dd62e8545f954c3297400b1d8"
-  integrity sha512-GfsphvjsGAqAVXqsRzNEWXGG7aUGHt/9oTDjVARPjMspNKBhesDZjks/O24dA1Nl006km2eXQVN0fhtpIRp24w==
+vuestic-ui@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.6.3.tgz#01371167243aad94b14796c0099965d7cd6bd715"
+  integrity sha512-hVmOhA/g5uZNx+/DvZoOiME0Grp17eq4jeCVGFb0vkTsmGZ809mO6/txOmo60HP3LVttZVPwuIrjoqHbddINDw==
   dependencies:
     "@types/lodash" "^4.14.161"
     cleave.js "^1.6.0"

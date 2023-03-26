@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useModal } from 'vuestic-ui/web-components';
 
+useModal
 </script>
 
 <template>

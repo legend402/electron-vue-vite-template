@@ -20,7 +20,6 @@ export function videoStart(name: string) { //用户点击列表某个用户时�
 }
 
 export function startVideoChat(otherId: string) { //初始化视频聊天
-
   const callingInstance = useCallingStore()
   callingInstance.setIsLogin(true)
   localStorage.setItem('otherId', otherId) //将对方的id保存

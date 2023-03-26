@@ -32,8 +32,8 @@
         <div>
           <Button theme @click="breakVideoConnect">结束通话</Button>
         </div>
-        <video ref="localVideoRef" h-70  border="1 dashed" rounded-10></video>
-        <video ref="remoteVideo" h-70  border="1 dashed" rounded-10></video>
+        <video ref="localVideoRef" class="scale-x-[-1]" h-70 border="1 dashed" rounded-10></video>
+        <video ref="remoteVideo" class="scale-x-[-1]" h-70 border="1 dashed" rounded-10></video>
       </div>
     </div>
   </div>
@@ -41,9 +41,13 @@
 
 <script setup lang="ts">
 import { useCallingStore } from '@/store/call/useCallingStore';
-import { initSocket, breakVideoConnect } from './call-upgrade/socket';
+import { useModal, useToast } from 'vuestic-ui';
+import { initSocket, breakVideoConnect, setToastAndConfirm } from './call-upgrade/socket';
 import { videoStart } from './call/userLits'
 import { setVideoContainer } from './call/video';
+
+const { confirm } = useModal()
+const { init } = useToast()
 
 const username = ref('')
 const localVideoRef = ref<HTMLVideoElement>()
@@ -69,6 +73,7 @@ const login = () => {
 onMounted(() => {
   checkToken()
   setVideoContainer(localVideoRef.value!, remoteVideo.value!)
+  setToastAndConfirm(confirm, init)
 })
 </script>
 

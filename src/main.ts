@@ -6,7 +6,7 @@ import router from './router'
 import pinia from './store'
 import "material-design-icons-iconfont/dist/material-design-icons.min.css";
 import './assets/font'
-import { createVuestic } from 'vuestic-ui/web-components'
+import { createVuestic } from 'vuestic-ui'
 
 (async () => {
   const app = createApp(App)

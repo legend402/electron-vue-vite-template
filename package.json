@@ -22,7 +22,7 @@
     "vite-plugin-electron-renderer": "^0.11.4",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
-    "vuestic-ui": "^1.6.2"
+    "vuestic-ui": "^1.6.3"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
