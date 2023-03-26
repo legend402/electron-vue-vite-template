@@ -1,12 +1,13 @@
 <template>
   <div flex="~ col" items-center content-height>
-    <div class="btn-action">
-      <select v-model="drawType" @change="selectChange">
-        <option value="PEN">笔</option>
-        <option value="RECTANGLE">长方形</option>
-        <option value="CIRCLE">圆形</option>
-        <option value="LINE">划线</option>
-      </select>
+    <div class="btn-action" flex items-center>
+      <va-select
+        v-model="drawType"
+        label="请选择工具"
+        :options="options"
+        color="#990099"
+        w-30
+      />
       <Button theme mr-1 @click="() => canvasTools.rollback()">rollback</Button>
       <Button theme mr-1 @click="() => canvasTools.goon()">go on</Button>
       <Button theme mr-1 @click="() => canvasTools.clear()">clear</Button>
@@ -17,18 +18,38 @@
 </template>
 
 <script setup lang="ts">
-import type { PaintType } from '@/types/draw';
+import { PaintType } from '@/types/draw';
 import { Drawer } from './Draw';
+
+const options = reactive([
+  {
+    text: "笔",
+    value: "PEN",
+  },
+  {
+    text: "长方形",
+    value: "RECTANGLE",
+  },
+  {
+    text: "圆形",
+    value: "CIRCLE",
+  },
+  {
+    text: "划线",
+    value: "LINE",
+  },
+])
 
 const canvas = $ref<HTMLDivElement>();
 
 let canvasTools = $ref<Drawer>()!;
 
-let drawType = $ref<PaintType>();
+let drawType = $ref<PaintType>(PaintType.PEN);
 
 onMounted(() => {
   canvasTools = new Drawer(canvas!, {
   })
+  canvasTools.paintType = drawType
 })
 
 const selectChange = (val: Event) => {

@@ -49,7 +49,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: '视频通话',
       icon: 'phone',
-      status: DEVElOP_STATUS.DEVELOP,
+      status: DEVElOP_STATUS.BUG,
     }
   },
   {

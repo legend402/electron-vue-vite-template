@@ -9,12 +9,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AppHeader: typeof import('./../components/AppHeader.vue')['default']
+    AppHeader: typeof import('./../components/AppHeader/AppHeader.vue')['default']
     Button: typeof import('./../components/Button.vue')['default']
     LeftMenu: typeof import('./../components/LeftMenu.vue')['default']
     NotFound: typeof import('./../components/NotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThemeSelect: typeof import('./../components/AppHeader/ThemeSelect.vue')['default']
     VaAvatar: typeof import('vuestic-ui')['VaAvatar']
     VaInput: typeof import('vuestic-ui')['VaInput']
     VaList: typeof import('vuestic-ui')['VaList']
@@ -22,6 +23,7 @@ declare module '@vue/runtime-core' {
     VaListItemLabel: typeof import('vuestic-ui')['VaListItemLabel']
     VaListItemSection: typeof import('vuestic-ui')['VaListItemSection']
     VaListLabel: typeof import('vuestic-ui')['VaListLabel']
+    VaSelect: typeof import('vuestic-ui')['VaSelect']
     WaveSvg: typeof import('./../components/WaveSvg.vue')['default']
   }
 }

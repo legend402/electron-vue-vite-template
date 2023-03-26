@@ -151,7 +151,7 @@ export class Drawer<T extends HTMLElement = HTMLElement> extends CanvasTool {
   private lastPoint: Point = null as any;
   private isDraw: boolean = false;
 
-  public paintType: PaintType = PaintType.LINE;
+  public paintType: PaintType = PaintType.PEN;
 
   public lineWidth: number = 4;
   public lineColor: string = '#000';
