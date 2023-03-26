@@ -14,7 +14,7 @@ export {
 }
 
 export function initSocket(token: string) {//获取到用户输入的id并传到服务端
-  socket.value = io('ws://127.0.0.1:3000?token=' + token, {
+  socket.value = io('wss://hanyj.top?token=' + token, {
       autoConnect: false
   });
   socket.value.open();

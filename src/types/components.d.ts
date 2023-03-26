@@ -16,7 +16,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VaAvatar: typeof import('vuestic-ui')['VaAvatar']
-    VaIcon: typeof import('vuestic-ui')['VaIcon']
     VaInput: typeof import('vuestic-ui')['VaInput']
     VaList: typeof import('vuestic-ui')['VaList']
     VaListItem: typeof import('vuestic-ui')['VaListItem']

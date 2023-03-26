@@ -1,5 +1,5 @@
 <template>
-  <div :class="['bg-main', isExpand ? 'min-w-60' : 'min-w-12']" transition-all  h-full rounded-r-15>
+  <div :class="['bg-main', isExpand ? 'min-w-60' : 'min-w-16']" transition-all  h-full rounded-r-15>
     <div class="Logo" flex items-center justify-center font-bold text-white text-8 text-center py-3 pt-8>
        <div i-carbon-face-wink-filled></div> <div overflow-hidden transition-all :class="[isExpand ? 'max-w-60 ml-3' : 'max-w-0 ml-0', 'no-wrap']">蜗牛靖子</div>
     </div>
