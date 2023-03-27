@@ -9,7 +9,7 @@
     </div>
   </div>
   
-  <div class="wave bottom-[-30vh]" fixed w="200vw" z-1 left-0>
+  <div class="wave bottom-[-30vh]" fixed w="200vw" z-1 left-0 pointer-events="none">
     <WaveSvg></WaveSvg>
   </div>
 </template>
@@ -19,7 +19,6 @@ defineOptions({
   name: 'home-首页',
 })
 const imgs = Object.values(import.meta.glob('@/assets/img/*.png', { eager: true })).map((item: any) => item.default)
-
 </script>
 
 <style scoped>

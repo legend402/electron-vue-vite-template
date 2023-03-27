@@ -42,12 +42,9 @@
 <script setup lang="ts">
 import { useCallingStore } from '@/store/call/useCallingStore';
 import { useModal, useToast } from 'vuestic-ui';
-import { initSocket, breakVideoConnect, setToastAndConfirm } from './call-upgrade/socket';
+import { initSocket, breakVideoConnect } from './call-upgrade/socket';
 import { videoStart } from './call/userLits'
 import { setVideoContainer } from './call/video';
-
-const { confirm } = useModal()
-const { init } = useToast()
 
 const username = ref('')
 const localVideoRef = ref<HTMLVideoElement>()
@@ -73,7 +70,6 @@ const login = () => {
 onMounted(() => {
   checkToken()
   setVideoContainer(localVideoRef.value!, remoteVideo.value!)
-  setToastAndConfirm(confirm, init)
 })
 </script>
 

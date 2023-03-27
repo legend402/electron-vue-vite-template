@@ -2,8 +2,6 @@ import { useCallingStore } from "@/store/call/useCallingStore";
 import { createChatList, startVideoChat } from "../call/userLits";
 import { getIce, getOffer, getAnswer, stopVideoStream } from "../call/video";
 import io, { type Socket } from 'socket.io-client'
-import { getVueInstance } from "@/utils";
-import type { ModalOptions, ToastOptions } from "vuestic-ui/web-components";
 
 const socket: {
   value: Socket
@@ -14,8 +12,6 @@ const socket: {
 export {
   socket
 }
-
-let confirmFn: (options: string | ModalOptions) => Promise<boolean>, toastFn: (options: string | ToastOptions) => string | null
 
 export function initSocket(token: string) {//获取到用户输入的id并传到服务端
   socket.value = io('wss://hanyj.top?token=' + token, {
@@ -91,10 +87,4 @@ export function breakVideoConnect() {
   socket.value.emit('_break', {
     roomNo: localStorage.getItem('roomNo')
   });
-}
-
-
-export function setToastAndConfirm(confirm: typeof confirmFn, toast: typeof toastFn) {
-  confirmFn = confirm
-  toastFn = toast
 }
