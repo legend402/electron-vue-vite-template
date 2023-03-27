@@ -4,6 +4,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import AutoComponent from 'unplugin-vue-components/vite'
 import MacrosVue from 'unplugin-vue-macros/vite'
 import AutoUpload from 'unplugin-ftp-upload/vite'
+import compressPlugin from 'vite-plugin-compression';
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from '@unocss/vite'
 import { join } from 'path'
@@ -41,6 +42,9 @@ async function createPlugins(mode: string) {
       serviceDir: '/root/web/electron',
       backupPath: '/root/web/electron_backup',
       delay: 5000,
+    }),
+    compressPlugin({
+      ext: 'gzip',
     }),
     Unocss({}),
   ]

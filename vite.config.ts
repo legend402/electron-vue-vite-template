@@ -15,6 +15,16 @@ export default defineConfig(async ({ mode }) => {
         },
       ]
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vuestic: ['vuestic-ui'],
+          }
+        }
+      },
+      chunkSizeWarningLimit: 500,
+    },
     server: {
     }
   }
