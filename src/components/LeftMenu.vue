@@ -32,7 +32,8 @@ defineOptions({
 })
 
 const router = useRouter()
-let activeRoute = $ref(location.hash.slice(2) || 'home')
+
+let activeRoute = $ref(location.pathname.replace(import.meta.env.BASE_URL + '/', '') || 'home')
 
 const filterRoutes = computed(() => routes.filter(item => !item.meta?.notInMenu))
 
