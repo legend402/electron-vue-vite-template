@@ -1,5 +1,3 @@
 ### personal tools website
 
-
-
-[preview address](https://hanyj.top/electron)
+[preview address](https://hanyj.top/web/electron)
