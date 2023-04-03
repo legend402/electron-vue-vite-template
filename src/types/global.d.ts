@@ -11,6 +11,7 @@ declare global {
   interface Window {
     confirmFn: (options: string | ModalOptions) => Promise<boolean>
     toastFn: (options: string | ToastOptions) => string | null
+    ipcRenderer: Electron.IpcRenderer
   }
 }
 

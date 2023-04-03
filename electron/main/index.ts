@@ -1,4 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
+import { readdirSync } from 'fs'
 import { join } from 'path'
 
 let win: BrowserWindow
@@ -70,5 +71,8 @@ function initEvent(app: BrowserWindow) {
   })
   ipcMain.on('window-close', function () {
     app.close();
+  })
+  ipcMain.on('readdir', (event, args) => {
+    event.reply('readdir-replay', readdirSync(args))
   })
 }

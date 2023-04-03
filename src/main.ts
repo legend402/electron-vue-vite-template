@@ -17,6 +17,7 @@ import { createVuestic } from 'vuestic-ui'
 
   if (import.meta.env.MODE !== 'web')
     app.config.globalProperties.$ipcRenderer = (await import('electron')).ipcRenderer
+    window.ipcRenderer = (await import('electron')).ipcRenderer
   
   app.mount('#app')
 })()

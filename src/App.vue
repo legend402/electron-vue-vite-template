@@ -6,6 +6,11 @@ const { init } = useToast()
 
 window.confirmFn = confirm
 window.toastFn = init
+
+ipcRenderer.send('readdir', '/h5')
+ipcRenderer.on('readdir-replay', (event, arg) => {
+  console.log(arg)
+})
 </script>
 
 <template>
