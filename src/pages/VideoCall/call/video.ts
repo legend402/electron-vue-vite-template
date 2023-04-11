@@ -4,7 +4,7 @@ import { socket } from "../call-upgrade/socket";
 let localVideo: HTMLVideoElement
 let remoteVideo: HTMLVideoElement
 
-var stream: MediaStream, peer: RTCPeerConnection //初始化要发送的流,和描述文件,通话状态
+var stream: MediaStream, peer: RTCPeerConnection, senders //初始化要发送的流,和描述文件,通话状态
 export function startVideoStream() { //开始传输视频流
   createMedia()
 }
@@ -49,6 +49,36 @@ export async function createPeerConnection() { //同步初始化描述文件并�
   peer.addEventListener('addstream', setVideo) //当peer收到其他流时显示另一个video以显示对方
   peer.addEventListener('icecandidate', sendIce) //获取到candidate时，将其发送至服务端，传至对方
   peer.addEventListener('negotiationneeded', sendOffer) //双方约定的协商被完成时才触发该方法
+}
+
+export async function showDeviceVersion() {
+  const deviceStream = await navigator.mediaDevices.getDisplayMedia({
+    audio: true,
+    video: true,
+  })
+  
+  console.log(peer.getSenders, peer.getSenders());
+  peer.getSenders().find(sender => sender.track === stream.getVideoTracks()[0])?.replaceTrack(deviceStream.getVideoTracks()[0])
+  // stream = deviceStream
+  // localVideo.srcObject = stream; //将媒体流输出到本地video以显示自己
+  // localVideo.onloadedmetadata = function (e: any) {
+  //   localVideo.play();
+  // };
+}
+
+export async function showMediaVersion() {
+  const mediaStream = await navigator.mediaDevices.getUserMedia({
+    audio: true,
+    video: true,
+  })
+  // console.log(peer, peer.getSenders());
+  
+  peer.getSenders().find(sender => sender.track === stream.getVideoTracks()[0])?.replaceTrack(mediaStream.getVideoTracks()[0])
+  // stream = mediaStream
+  // localVideo.srcObject = stream; //将媒体流输出到本地video以显示自己
+  // localVideo.onloadedmetadata = function (e: any) {
+  //   localVideo.play();
+  // };
 }
 
 export function setVideo(data: any) { //播放对方的视频流

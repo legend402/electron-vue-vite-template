@@ -16,6 +16,7 @@ export default defineConfig({
     ['bg-main-hover', { 'background-color': 'rgba(255, 255, 255, 0.2)' }],
     ['content-height', { 'height': 'var(--content-height)' }],
     ['max-content-height', { 'max-height': 'var(--content-height)' }],
+    ['flex-center', { 'display': 'flex', 'justify-content': 'center', 'align-items': 'center', }],
   ],
   presets: [
     presetUno(),

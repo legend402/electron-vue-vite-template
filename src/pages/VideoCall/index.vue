@@ -28,12 +28,21 @@
           </va-list-item>
         </va-list>
       </div>
-      <div class="video-list" flex="~ col" gap-5 flex-1>
-        <div>
-          <Button theme @click="breakVideoConnect">结束通话</Button>
+      <div class="video-list" flex="~ col" flex-1>
+        <div class="video" mt-5 flex-1 relative>
+          <div class="action-bar" flex gap-5 z-2 absolute bottom-5 left-5>
+            <div class="finish-call" bg-red-6 h-12 w-12 cursor-pointer flex-center rounded-full @click="breakVideoConnect">
+              <div i-carbon-phone-block-filled h-6 w-6 text-white></div>
+            </div>
+            <!-- <div class="finish-call" bg-blue-6 h-12 w-12 cursor-pointer flex-center rounded-full @click="breakVideoConnect">
+              <div v-if="callingStore.cameraStatus === 'user'" @click="callingStore.setCameraStatus('device')" i-carbon-screen h-6 w-6 text-white></div>
+              <div v-else @click="callingStore.setCameraStatus('user')" i-carbon-user-avatar h-6 w-6 text-white></div>
+            </div> -->
+          </div>
+          <video ref="localVideoRef" class="scale-x-[-1]" h-full w-full  border="1 dashed" rounded-10></video>
+
+          <video ref="remoteVideo" class="scale-x-[-1]" z-2 absolute right-5 bottom-5 h-50 w-80 border="1 dashed" rounded-10></video>
         </div>
-        <video ref="localVideoRef" class="scale-x-[-1]" h-70 border="1 dashed" rounded-10></video>
-        <video ref="remoteVideo" class="scale-x-[-1]" h-70 border="1 dashed" rounded-10></video>
       </div>
     </div>
   </div>
@@ -41,7 +50,6 @@
 
 <script setup lang="ts">
 import { useCallingStore } from '@/store/call/useCallingStore';
-import { useModal, useToast } from 'vuestic-ui';
 import { initSocket, breakVideoConnect } from './call-upgrade/socket';
 import { videoStart } from './call/userLits'
 import { setVideoContainer } from './call/video';
@@ -70,6 +78,7 @@ const login = () => {
 onMounted(() => {
   checkToken()
   setVideoContainer(localVideoRef.value!, remoteVideo.value!)
+  confirmFn('dwadawd')
 })
 </script>
 

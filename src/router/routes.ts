@@ -53,6 +53,16 @@ export const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/fileSys',
+    name: 'fileSys',
+    component: () => import('@/pages/fileSys/index.vue'),
+    meta: {
+      title: '文件操作',
+      icon: 'file',
+      status: DEVElOP_STATUS.DEVELOP,
+    }
+  },
+  {
     path: '/recrod',
     name: 'recrod',
     component: () => import('@/pages/Record/index.vue'),

@@ -1,7 +1,7 @@
 export const useConfigStore = defineStore('configStore', {
   state() {
     return {
-      isExpand: true,
+      isExpand: false,
     }
   },
   actions: {

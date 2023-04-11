@@ -1,5 +1,6 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow } from 'electron'
 import { join } from 'path'
+import { initEvent } from './event'
 
 let win: BrowserWindow
 
@@ -56,19 +57,3 @@ app.on('second-instance', () => {
   }
 })
 
-
-function initEvent(app: BrowserWindow) {
-  ipcMain.on('window-max', () => {
-    if(app.isMaximized()) {
-      app.unmaximize()
-    }else{
-      app.maximize()
-    }
-  })
-  ipcMain.on('window-min', function () {
-    app.minimize();
-  })
-  ipcMain.on('window-close', function () {
-    app.close();
-  })
-}

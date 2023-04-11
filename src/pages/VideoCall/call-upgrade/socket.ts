@@ -55,7 +55,10 @@ async function inviteVideoHandler(data: any) { //当用户被邀请时执行
     toastFn('正在通话中')
     allow = -1 //正在通话
   } else {
-    const res = await confirmFn(data.msg)
+    const res = await confirmFn({
+      message: data.msg,
+      okText: '接听',
+    })
     if (res) {
       allow = 1
       startVideoChat(data.token) //用户点击同意后开始初始化视频聊天

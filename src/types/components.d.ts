@@ -16,6 +16,10 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeSelect: typeof import('./../components/AppHeader/ThemeSelect.vue')['default']
+    Tree: typeof import('./../components/Tree/index.vue')['default']
+    TreeItem: typeof import('../components/Tree/TreeNode.vue')['default']
+    TreeNode: typeof import('./../components/Tree/TreeNode.vue')['default']
+    TreeNodeContent: typeof import('./../components/Tree/TreeNodeContent.vue')['default']
     VaAvatar: typeof import('vuestic-ui')['VaAvatar']
     VaInput: typeof import('vuestic-ui')['VaInput']
     VaList: typeof import('vuestic-ui')['VaList']
@@ -24,6 +28,8 @@ declare module '@vue/runtime-core' {
     VaListItemSection: typeof import('vuestic-ui')['VaListItemSection']
     VaListLabel: typeof import('vuestic-ui')['VaListLabel']
     VaSelect: typeof import('vuestic-ui')['VaSelect']
+    VaTextarea: typeof import('vuestic-ui')['VaTextarea']
+    VaTreeView: typeof import('vuestic-ui')['VaTreeView']
     WaveSvg: typeof import('./../components/WaveSvg.vue')['default']
   }
 }
