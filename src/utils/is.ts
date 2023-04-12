@@ -11,3 +11,23 @@ export const isBoolean = (val: any): val is boolean => getVarType(val) === 'Bool
 export const isArray = (val: any): val is Array<unknown> => getVarType(val) === 'Array'
 
 export const isObject = (val: any): val is Object => getVarType(val) === 'Object'
+
+export const isMap= (val: any): val is Map<unknown, unknown> => getVarType(val) === 'Map'
+
+export const isSet = (val: any): val is Set<unknown> => getVarType(val) === 'Set'
+
+export const isEmpty = (val: any): boolean => {
+  if ((Array.isArray(val) || typeof val === 'string') && val.length === 0) {
+    return true
+  }
+  
+  if (isObject(val) && Object.keys(val).length === 0) {
+    return true
+  }
+
+  if ((isMap(val) || isSet(val)) && val.size === 0) {
+    return true
+  }
+
+  return false
+}
