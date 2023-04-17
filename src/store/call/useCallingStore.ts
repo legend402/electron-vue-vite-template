@@ -1,7 +1,10 @@
+import { showDeviceVersion, showMediaVersion } from "@/pages/VideoCall/call/video"
+
 interface CallStoreProps {
   isCalling: boolean
   isLogin: boolean
   isBack: boolean
+  cameraStatus: 'user' | 'device'
   currentUserName: string
   userList: string[]
 }
@@ -13,6 +16,7 @@ export const useCallingStore = defineStore('call', {
       isCalling: false,
       isLogin: false,
       isBack: false,
+      cameraStatus: 'user',
       userList: [],
     }
   },
@@ -32,6 +36,10 @@ export const useCallingStore = defineStore('call', {
     setUserList(data: CallStoreProps['userList']) {
       this.userList = data
     },
+    setCameraStatus(state: CallStoreProps['cameraStatus']) {
+      this.cameraStatus = state;
+      (state === 'device' ? showDeviceVersion : showMediaVersion)()
+    }
   },
   persist: {
     paths: ['currentUserName']

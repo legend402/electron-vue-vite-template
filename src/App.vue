@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { useModal, useToast } from 'vuestic-ui/web-components';
+import { useModal, useToast } from 'vuestic-ui/web-components'
 
 const { confirm } = useModal()
 const { init } = useToast()
 
 window.confirmFn = confirm
 window.toastFn = init
-
-ipcRenderer.send('readdir', '/h5')
-ipcRenderer.on('readdir-replay', (event, arg) => {
-  console.log(arg)
-})
 </script>
 
 <template>
@@ -26,4 +21,10 @@ ipcRenderer.on('readdir-replay', (event, arg) => {
 </template>
 
 <style scoped>
+</style>
+
+<style>
+:deep(.va-modal .va-button.va-button--normal) {
+  background: var(--theme-color) !important;
+}
 </style>

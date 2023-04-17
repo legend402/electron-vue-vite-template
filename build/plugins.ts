@@ -4,6 +4,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import AutoComponent from 'unplugin-vue-components/vite'
 import MacrosVue from 'unplugin-vue-macros/vite'
 import AutoUpload from 'unplugin-ftp-upload/vite'
+import CodePosition, { getUseablePort } from 'unplugin-code-position/vite'
 import compressPlugin from 'vite-plugin-compression';
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from '@unocss/vite'
@@ -37,12 +38,15 @@ async function createPlugins(mode: string) {
       ],
       dts: 'src/types/components.d.ts',
     }),
-    AutoUpload({
-      ...require('./auth.json'),
-      serviceDir: '/root/web/electron',
-      backupPath: '/root/web/electron_backup',
-      delay: 5000,
+    CodePosition({
+      port: await getUseablePort(9002)
     }),
+    // AutoUpload({
+    //   ...require('./auth.json'),
+    //   serviceDir: '/root/web/electron',
+    //   backupPath: '/root/web/electron_backup',
+    //   delay: 5000,
+    // }),
     compressPlugin({
       ext: 'gzip',
     }),
