@@ -8,9 +8,9 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props) {
+  setup(props) { 
     const node = props.node
-    const tree = inject<RootTreeProvide>('root-tree')!
+    const tree = inject<RootTreeProvide>('root-tree')! 
     
     return () => tree.slots.default ? tree.slots.default({ node }) : h('span', { class: 'label' }, [node.label])
   }

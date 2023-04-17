@@ -1,7 +1,13 @@
 <template>
-  <Tree :nodes="nodes" @node-click="nodeClick" :loadData="loadData">
+  <Tree :nodes="nodes" @node-click="nodeClick" @check="check" :checkable="true" @node-right-click="nodeClickRight" :loadData="loadData">
     <template #default="{ node }">
-      {{ node.label }}
+      <div flex justify-between>
+        <span>{{ node.label }}</span>
+        <div class="action">
+          <va-button preset="plain" mr-2>rename</va-button>
+          <va-button preset="plain">delete</va-button>
+        </div>
+      </div>
     </template>
   </Tree>
 
@@ -19,7 +25,8 @@
 <script setup lang="ts">
 import { readdir, readFile } from '@/utils/electron/fs';
 import type { TreeNode } from '@/components/Tree/tree.type';
-import { VaModal } from 'vuestic-ui/web-components';
+import { VaModal, VaButton } from 'vuestic-ui/web-components';
+import type { Point } from '@/types/draw';
 
 const nodes = ref<TreeNode[]>([])
 
@@ -46,6 +53,10 @@ const nodeClick = async (node: TreeNode, isExpand: boolean) => {
   // folderHandle(node)
 }
 
+const nodeClickRight = (node: TreeNode, point: Point) => {
+  console.log(node, point)
+}
+
 const loadData = async (node: TreeNode) => {
   const data = await readdir('/' + node.id)
 
@@ -62,6 +73,10 @@ const fileHandle = async (node: TreeNode) => {
   const fileString = await readFile('/' + node.id)
   fileContent.value = fileString
   modalShow.value = true
+}
+
+const check = (list: TreeNode[], node: TreeNode, check: boolean) => {
+  console.log(list, node, check)
 }
 </script>
 

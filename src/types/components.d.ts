@@ -21,6 +21,8 @@ declare module '@vue/runtime-core' {
     TreeNode: typeof import('./../components/Tree/TreeNode.vue')['default']
     TreeNodeContent: typeof import('./../components/Tree/TreeNodeContent.vue')['default']
     VaAvatar: typeof import('vuestic-ui')['VaAvatar']
+    VaButton: typeof import('vuestic-ui')['VaButton']
+    VaCheckbox: typeof import('vuestic-ui')['VaCheckbox']
     VaInput: typeof import('vuestic-ui')['VaInput']
     VaList: typeof import('vuestic-ui')['VaList']
     VaListItem: typeof import('vuestic-ui')['VaListItem']

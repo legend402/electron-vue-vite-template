@@ -11,6 +11,7 @@ const createWindow = () => {
     resizable: true,
     titleBarStyle: 'hidden',
     transparent: true,
+    fullscreen: true,
     backgroundColor: 'rgba(0, 0, 0, 0)',
     webPreferences: {
       nodeIntegration: true,

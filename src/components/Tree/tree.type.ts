@@ -1,13 +1,16 @@
 import type { ComponentInternalInstance, SetupContext } from "vue"
 
+type LoadDataFunc = (node: TreeNode) => Promise<TreeNode[]>
+
 interface TreeProps {
   nodes: TreeNode[]
-  loadData?: (node: TreeNode) => Promise<TreeNode[]>
+  loadData?: LoadDataFunc
+  checkable?: boolean
 }
 
 interface TreeItemProps {
   node: TreeNode
-  loadData?: (node: TreeNode) => Promise<TreeNode[]>
+  loadData?: LoadDataFunc
   level: number
 }
 
@@ -27,7 +30,11 @@ interface TreeItemEmits {
 
 interface RootTreeProvide {
   instance: ComponentInternalInstance,
-  slots: SetupContext['slots']
+  slots: SetupContext['slots'],
+  emits: SetupContext['emit'],
+  loadData?: LoadDataFunc,
+  checkable?: boolean,
+  checkList: TreeNode[],
 }
 
 export type {
