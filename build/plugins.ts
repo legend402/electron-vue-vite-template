@@ -39,7 +39,7 @@ async function createPlugins(mode: string) {
       dts: 'src/types/components.d.ts',
     }),
     CodePosition({
-      port: await getUseablePort(9002)
+      port: await getUseablePort(9004)
     }),
     // AutoUpload({
     //   ...require('./auth.json'),
