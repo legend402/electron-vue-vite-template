@@ -1,5 +1,5 @@
 <template>
-  <Tree :nodes="nodes" @node-click="nodeClick" @check="check" :checkable="true" @node-right-click="nodeClickRight" :loadData="loadData">
+  <Tree :nodes="nodes" ref="treeRef" @node-click="nodeClick" @check="check" :checkable="true" :loadData="loadData">
     <template #default="{ node }">
       <div flex justify-between>
         <span>{{ node.label }}</span>
@@ -25,8 +25,8 @@
 <script setup lang="ts">
 import { readdir, readFile } from '@/utils/electron/fs';
 import type { TreeNode } from '@/components/Tree/tree.type';
-import { VaModal, VaButton } from 'vuestic-ui/web-components';
-import type { Point } from '@/types/draw';
+
+const treeRef = ref()
 
 const nodes = ref<TreeNode[]>([])
 
@@ -50,12 +50,13 @@ const nodeClick = async (node: TreeNode, isExpand: boolean) => {
     return
   }
   if (!isExpand) return
-  // folderHandle(node)
 }
 
-const nodeClickRight = (node: TreeNode, point: Point) => {
-  console.log(node, point)
-}
+onMounted(() => {
+  setTimeout(() => {
+    treeRef.value.setNodeChecked(['var'])
+  }, 300)
+})
 
 const loadData = async (node: TreeNode) => {
   const data = await readdir('/' + node.id)

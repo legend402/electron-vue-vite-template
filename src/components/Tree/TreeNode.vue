@@ -8,8 +8,8 @@
         <TreeNodeContent :node="node"></TreeNodeContent>
       </div>
     </div>
-    <div class="tree-children" :style="{ marginLeft: '1rem' }" v-if="isExpand">
-      <han-tree-node :level="level + 1" :node="child" v-for="child in childrenNodes" @node-click="nodeClick" :key="child.id"></han-tree-node>
+    <div class="tree-children" ref="childRef" :style="{ marginLeft: '1rem' }" v-show="isExpand">
+      <han-tree-node :level="level + 1" :node="child" v-for="child in node.children" @node-click="nodeClick" :key="child.id"></han-tree-node>
     </div>
   </div>
 </template>
@@ -17,33 +17,30 @@
 <script setup lang="ts">
 import TreeNodeContent from './TreeNodeContent.vue';
 import { isEmpty } from 'lodash-es';
-import type { RootTreeProvide, TreeItemProps, TreeNode } from './tree.type'
+import type { TreeItemProps, TreeNode } from './tree.type'
+import { useTreeItem } from './utils/useTreeItem'
+import { to } from '@/utils';
 
 defineOptions({
   name: 'han-tree-node'
 })
 
 const { node, level } = $defineProps<TreeItemProps>()
+const { isCheck, tree } = useTreeItem(node, { level })
 
-const isCheck = ref(false)
-
-const tree = inject<RootTreeProvide>('root-tree')!
-
-node.level = level
+const childRef = ref<HTMLDivElement>()
 
 const existChildren = $computed(() => !isEmpty(node.children) || node.isLeaf || node.icon)
-
 const isExpand = $computed(() => node.isExpand && existChildren)
-
-const childrenNodes = $computed(() => node.children)
 
 const setExpand = () => {
   node.isExpand = !node.isExpand
   nodeClick(node, node.isExpand)
 }
 const nodeClick = async (node: TreeNode, expand: boolean) => {
+  // 懒加载子节点
   if (tree.loadData && !node.isLeaf && !node.children) {
-    const childNodes = await tree.loadData(node)
+    const [childNodes] = await to(tree.loadData(node))
     if (isEmpty(childNodes)) {
       node.isLeaf = true
     } else {
@@ -59,15 +56,7 @@ const rightClick = (e: MouseEvent) => {
     tree.emits('nodeRightClick', node, { x: e.pageX, y: e.pageY })
 }
 
-watch(isCheck, () => {
-  if (isCheck.value) {
-    tree.checkList.push(node)
-  } else {
-    const idx = tree.checkList.indexOf(node)
-    idx !== -1 && tree.checkList.splice(idx, 1)
-  }
-  tree.emits('check', tree.checkList, node, isCheck.value)
-})
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

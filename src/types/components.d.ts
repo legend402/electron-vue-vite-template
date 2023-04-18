@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     VaListItemLabel: typeof import('vuestic-ui')['VaListItemLabel']
     VaListItemSection: typeof import('vuestic-ui')['VaListItemSection']
     VaListLabel: typeof import('vuestic-ui')['VaListLabel']
+    VaModal: typeof import('vuestic-ui')['VaModal']
     VaSelect: typeof import('vuestic-ui')['VaSelect']
     VaTextarea: typeof import('vuestic-ui')['VaTextarea']
     VaTreeView: typeof import('vuestic-ui')['VaTreeView']

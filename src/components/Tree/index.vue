@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import type { TreeNode, TreeProps } from './tree.type'
 import treeNode from './TreeNode.vue';
+import { useTree } from './utils/useTree'
 
 defineOptions({
   name: 'han-tree'
@@ -30,16 +31,20 @@ const nodeClick = (node: TreeNode, expand: boolean) => {
 const nodeRightClick = (node: TreeNode) => {
   emits('nodeRightClick', node)
 }
-
-const checkList = reactive([])
+const { checkList, setNodeChecked, subscribeCbs } = useTree({ nodes, checkable })
 
 provide('root-tree', {
   instance: getCurrentInstance()!,
-  slots,
+  slots, 
   emits,
   loadData,
   checkable,
   checkList,
+  subscribeCbs,
+})
+
+defineExpose({
+  setNodeChecked,
 })
 </script>
 
