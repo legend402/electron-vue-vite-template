@@ -2,6 +2,8 @@ import type { ComponentInternalInstance, SetupContext } from "vue"
 
 type LoadDataFunc = (node: TreeNode) => Promise<TreeNode[]>
 
+export type KeyType = string | number
+
 interface TreeProps {
   nodes: TreeNode[]
   loadData?: LoadDataFunc
@@ -34,7 +36,8 @@ interface RootTreeProvide {
   emits: SetupContext['emit'],
   loadData?: LoadDataFunc,
   checkable?: boolean,
-  checkList: TreeNode[],
+  checkList: KeyType[],
+  subscribeCbs: ((list: KeyType[]) => void)[]
 }
 
 export type {
