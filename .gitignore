@@ -17,6 +17,8 @@ release
 *.rar
 *.7z
 /build/auth.json
+/src/types/auto-imports.d.ts
+/src/types/components.d.ts
 
 # Editor directories and files
 .vscode/*
