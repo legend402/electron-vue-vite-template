@@ -23,15 +23,7 @@ const emits = defineEmits<SE<{
 }>>()
 
 const slots = useSlots()
-
-const nodeClick = (node: TreeNode, expand: boolean) => {
-  emits('nodeClick', node, expand)
-}
-
-const nodeRightClick = (node: TreeNode) => {
-  emits('nodeRightClick', node)
-}
-const { checkList, setNodeChecked, subscribeCbs } = useTree({ nodes, checkable })
+const { checkList, setNodeChecked, subscribeCbs, setNodeExpand } = useTree({ nodes, checkable })
 
 provide('root-tree', {
   instance: getCurrentInstance()!,
@@ -43,8 +35,9 @@ provide('root-tree', {
   subscribeCbs,
 })
 
-defineExpose({
+defineExpose({ 
   setNodeChecked,
+  setNodeExpand,
 })
 </script>
 

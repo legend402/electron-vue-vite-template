@@ -10,9 +10,15 @@ export const useTree = (props: TreeProps) => {
     if (props.checkable)
       subscribeCbs.forEach(cb => cb(nodeList))
   }
+
+  const setNodeExpand = (nodeKeys: KeyType[]) => {
+
+  }
+
   return {
     checkList,
     setNodeChecked,
     subscribeCbs,
+    setNodeExpand,
   }
 }

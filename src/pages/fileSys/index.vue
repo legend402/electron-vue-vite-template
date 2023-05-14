@@ -1,5 +1,5 @@
 <template>
-  <Tree :nodes="nodes" ref="treeRef" @node-click="nodeClick" @check="check" :checkable="true" :loadData="loadData">
+  <Tree :nodes="nodes" ref="treeRef" @node-click="nodeClick" @check="check" :loadData="loadData">
     <template #default="{ node }">
       <div flex justify-between>
         <span>{{ node.label }}</span>
@@ -29,6 +29,7 @@ import type { TreeNode } from '@/components/Tree/tree.type';
 const treeRef = ref()
 
 const nodes = ref<TreeNode[]>([])
+const targetPath = ['/Users', '/Users/Shared', '/Users/Shared/LogiOptionsPlus']
 
 const fileName = ref('')
 const fileContent = ref('')

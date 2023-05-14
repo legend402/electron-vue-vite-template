@@ -34,8 +34,12 @@ const existChildren = $computed(() => !isEmpty(node.children) || node.isLeaf || 
 const isExpand = $computed(() => node.isExpand && existChildren)
 
 const setExpand = () => {
-  node.isExpand = !node.isExpand
-  nodeClick(node, node.isExpand)
+  if (!node.isLeaf) {
+    node.isExpand = !node.isExpand
+    nodeClick(node, node.isExpand)
+    return
+  }
+  tree.emits('nodeClick', node, isExpand)
 }
 const nodeClick = async (node: TreeNode, expand: boolean) => {
   // 懒加载子节点
